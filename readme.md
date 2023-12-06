@@ -15,11 +15,16 @@
 
 `string-to-image` is a simple package that can convert any string into a PNG image, and then parse it back to its original string. This can be useful for storing data in images that can then be uploaded to image hosting sites. Those can then be downloaded and parsed back to the original string, a method of free data storage. They can also be useful for storing data in a way that is not easily readable by humans, or for storing data in a way that is not easily editable by humans.
 
+<!--
+Doesn't format well on GitHub
+Image doesn't appear on NPM due to test/data.png not existing in the NPM package
+TODO: Replace with a better **graphic** example
+
 <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
   <div style="width:250px">According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible... [and 49906 characters more]</div>
   <span style="font-size:50px">→</span>
   <img src="test/data.png" style="width:200px" />
-</div>
+</div> -->
 
 # 🏓 Table of Contents
 
