@@ -55,20 +55,20 @@ const { Image } = require("string-to-image");
 ## Constructor
 
 ```ts
-public constructor(data: string | Uint8Array);
+public constructor(data: string | Buffer);
 ```
 
-The constructor accepts either a string or a Uint8Array representing a PNG buffer.
+The constructor accepts either a `string` or a `Buffer` representing a PNG buffer.
 
 ## Methods
 
 ### getBuffer
 
 ```ts
-public async getBuffer(): Promise<Uint8Array>;
+public async getBuffer(): Promise<Buffer>;
 ```
 
-The `getBuffer` method will return a Uint8Array representing the PNG buffer of the image. This can be used to write the image to a file, or to upload it to an image hosting site.
+The `getBuffer` method will return a `Buffer` representing the PNG buffer of the image. This can be used to write the image to a file, or to upload it to an image hosting site.
 
 ### getData
 

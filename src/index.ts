@@ -1,5 +1,6 @@
 import configure from '@jimp/custom';
 import png from '@jimp/png';
+import { Buffer } from 'buffer/index.js';
 
 const Jimp = configure({ types: [png] });
 
@@ -7,17 +8,17 @@ const Jimp = configure({ types: [png] });
  * A class to convert between a string and a PNG image.
  */
 export class Image {
-  private _dataBuffer: Uint8Array | null = null;
-  private _imageBuffer: Uint8Array | null = null;
+  private _dataBuffer: Buffer | null = null;
+  private _imageBuffer: Buffer | null = null;
 
   /**
    * Create an Image instance from a string or PNG buffer
    * @param data - used to create the image from
    * @throws when the data is not a string or buffer
    */
-  public constructor(data: string | Uint8Array) {
+  public constructor(data: string | Buffer) {
     if (typeof data === 'string') {
-      this._dataBuffer = new TextEncoder().encode(data);
+      this._dataBuffer = Buffer.from(data);
     } else if (
       data instanceof Uint8Array &&
       // Check the first 4 bytes of the buffer to see if it's a PNG
@@ -67,6 +68,7 @@ export class Image {
       }
     }
 
+    // @ts-ignore - Node.js buffer vs browser buffer
     this._imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
     return this._imageBuffer;
   }
@@ -104,10 +106,10 @@ export class Image {
     // Slice the array up to the last non-zero element
     buffer.length = lastIndex + 1;
 
-    this._dataBuffer = new Uint8Array(buffer);
+    this._dataBuffer = Buffer.from(buffer);
     return (
-      new TextDecoder()
-        .decode(this._dataBuffer)
+      this._dataBuffer
+        .toString()
         // Unsure why, but the bee movie script has whitespace at the end
         // Don't think it will really affect anything, but time will tell
         .trimEnd()

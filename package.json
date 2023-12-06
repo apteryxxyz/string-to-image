@@ -1,6 +1,6 @@
 {
   "name": "string-to-image",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "type": "module",
   "description": "Convert strings into PNG images, that can be parsed back to the original string!",
@@ -47,7 +47,8 @@
   },
   "dependencies": {
     "@jimp/custom": "^0.22.10",
-    "@jimp/png": "^0.22.10"
+    "@jimp/png": "^0.22.10",
+    "buffer": "^6.0.3"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
